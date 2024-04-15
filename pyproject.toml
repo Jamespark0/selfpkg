@@ -1,5 +1,5 @@
 [project]
-name = "testpkg"
+name = "selfpkg"
 version = "0.0.0"
 description = "Just for self-learning publishing from GitHub!"
 authors = [

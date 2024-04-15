@@ -1,1 +1,0 @@
-from testpkg.greeting import greeting
