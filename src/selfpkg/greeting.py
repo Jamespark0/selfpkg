@@ -1,2 +1,2 @@
-def greeting(msg: str | None) -> None:
+def greeting(msg: str = "") -> None:
     print(msg)

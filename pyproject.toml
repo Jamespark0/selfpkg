@@ -1,17 +1,22 @@
 [project]
 name = "selfpkg"
-version = "0.0.0"
+version = "0.0.1a1"
 description = "Just for self-learning publishing from GitHub!"
 authors = [
-    {name = "Shao-Lun Huang", email = "simon.linux7@gmail.com"},
+    { name = "Shao-Lun Huang", email = "simon.linux7@gmail.com" },
 ]
 dependencies = []
 requires-python = ">=3.11"
 readme = "README.md"
-license = {text = "MIT"}
+
+[project.license]
+text = "MIT"
 
 [build-system]
-requires = ["setuptools>=61", "wheel"]
+requires = [
+    "setuptools>=61",
+    "wheel",
+]
 build-backend = "setuptools.build_meta"
 
 [tool.pdm]
