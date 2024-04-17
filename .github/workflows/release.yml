@@ -89,7 +89,7 @@ jobs:
           name: python-package-distributions
           path: dist/
         
-      - name: Publish package to TestPyPI
+      - name: Publish package to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
   
   github-release-without-signature:
@@ -106,11 +106,10 @@ jobs:
     
     steps:
       - name: Create release message
-        id: changelog
-        uses: requarks/changelog-action@v1
-        with:
-          token: ${{ github.token }}
-          tag: ${{ github.ref_name }}
+        id: release_note
+        uses: mikepenz/release-changelog-builder-action@v4        
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create GitHub Release
         uses: actions/create-release@v1
@@ -119,7 +118,7 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
-          body: ${{ steps.changelog.outputs.changes }}
+          body: ${{ steps.release_note.outputs.changelog }}
             # Changes in this Release
             # - First Change
             # - Second Change
