@@ -1,1 +1,1 @@
-from selfpkg.greeting import greeting
+from selfpkg.greeting import greeting, greeting_in_chinese

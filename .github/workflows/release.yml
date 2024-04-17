@@ -93,10 +93,11 @@ jobs:
         uses: pypa/gh-action-pypi-publish@release/v1
   
   github-release-without-signature:
-    name: Create a GitHub release without signature when a tag is pushed to GitHub
+    name: Create a GitHub release draft without signature when a tag is pushed to GitHub and is submitted to PyPI
 
-    needs: [publish-to-pypi]
-    if: github.event_name == 'push' && github.ref_type == 'tag'
+    needs: [build, publish-to-pypi]
+    # if: github.event_name == 'push' && github.ref_type == 'tag'
+    if: ${{ always() && contains(join(needs.*.result, ','), 'success')}}
     
     runs-on: ubuntu-latest
 
