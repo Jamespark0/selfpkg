@@ -1,6 +1,6 @@
 [project]
 name = "selfpkg"
-version = "0.0.1"
+version = "0.0.2"
 description = "Just for self-learning publishing from GitHub!"
 authors = [
     { name = "Shao-Lun Huang", email = "simon.linux7@gmail.com" },

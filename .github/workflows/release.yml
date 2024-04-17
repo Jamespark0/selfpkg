@@ -105,6 +105,13 @@ jobs:
       contents: write  # IMPORTANT: mandatory for making GitHub Releases
     
     steps:
+      - name: Create release message
+        id: changelog
+        uses: requarks/changelog-action@v1
+        with:
+          token: ${{ github.token }}
+          tag: ${{ github.ref_name }}
+
       - name: Create GitHub Release
         uses: actions/create-release@v1
         env: 
@@ -112,10 +119,10 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
-          body: |
-            Changes in this Release
-            - First Change
-            - Second Change
+          body: ${{ steps.changelog.outputs.changes }}
+            # Changes in this Release
+            # - First Change
+            # - Second Change
           draft: true
           prerelease: true
 
