@@ -3,3 +3,6 @@ class Example1:
 
 class Example2:
     raise NotImplementedError()
+
+class Example3:
+    raise NotImplementedError()
